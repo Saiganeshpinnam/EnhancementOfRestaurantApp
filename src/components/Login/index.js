@@ -51,13 +51,13 @@ class LoginForm extends Component {
     const {password} = this.state
     return (
       <>
-        <label className="input-label" htmlFor="password">
+        <label className='input-label' htmlFor='password'>
           PASSWORD
         </label>
         <input
-          type="password"
-          id="password"
-          className="input-field"
+          type='password'
+          id='password'
+          className='input-field'
           value={password}
           onChange={this.onChangePassword}
         />
@@ -69,13 +69,13 @@ class LoginForm extends Component {
     const {username} = this.state
     return (
       <>
-        <label className="input-label" htmlFor="username">
+        <label className='input-label' htmlFor='username'>
           USERNAME
         </label>
         <input
-          type="text"
-          id="username"
-          className="input-field"
+          type='text'
+          id='username'
+          className='input-field'
           value={username}
           onChange={this.onChangeUsername}
         />
@@ -86,14 +86,14 @@ class LoginForm extends Component {
   render() {
     const {showSubmitError, errorMsg} = this.state
     return (
-      <div className="form-bg-container">
-        <form className="form-container" onSubmit={this.submitForm}>
-          <div className="input-container">{this.renderUsernameField()}</div>
-          <div className="input-container">{this.renderPasswordField()}</div>
-          <button type="submit" className="submit-btn">
+      <div className='form-bg-container'>
+        <form className='form-container' onSubmit={this.submitForm}>
+          <div className='input-container'>{this.renderUsernameField()}</div>
+          <div className='input-container'>{this.renderPasswordField()}</div>
+          <button type='submit' className='submit-btn'>
             Submit
           </button>
-          {showSubmitError && <p className="error-message">*{errorMsg}</p>}
+          {showSubmitError && <p className='error-message'>*{errorMsg}</p>}
         </form>
       </div>
     )

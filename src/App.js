@@ -10,6 +10,8 @@ import Login from './components/Login'
 
 import Cart from './components/Cart'
 
+import ProtectedRoute from './components/ProtectedRoute'
+
 import './App.css'
 
 // write your code here
@@ -95,8 +97,8 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
             <Route exact path='/login' component={Login} />
-            <Route exact path='/' component={Home} />
-            <Route exact path='/cart' component={Cart} />
+            <ProtectedRoute exact path='/' component={Home} />
+            <ProtectedRoute exact path='/cart' component={Cart} />
           </Switch>
         </BrowserRouter>
       </CartContext.Provider>
