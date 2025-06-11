@@ -12,10 +12,11 @@ class cartListView extends Component {
       <CartContext.Consumer>
         {value => {
           const {cartList} = value
+
           return (
             <ul className='cart-items-container'>
               {cartList.map(eachCartItem => (
-                <CartItem eachCartItem={eachCartItem} />
+                <CartItem eachCartItem={eachCartItem} key={eachCartItem.dish.dish_id}/>
               ))}
             </ul>
           )

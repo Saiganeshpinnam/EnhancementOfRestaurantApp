@@ -6,6 +6,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 10px;
 }
 .dish-image-name-container {
   height: 100%;
@@ -42,5 +43,17 @@
 }
 .cart-item-quantity {
   color: #202421;
+  font-size: 18px;
+}
+.dish-price {
+  color: #22408a;
+  font-size: 19px;
+  font-family: 'Roboto';
+}
+.close-btn{
+  background-color: transparent;
+  border-width: 0px;
+}
+.close-dish {
   font-size: 18px;
 }

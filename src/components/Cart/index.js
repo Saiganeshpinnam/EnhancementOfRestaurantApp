@@ -18,19 +18,19 @@ class Cart extends Component {
             removeAllCartItems()
           }
           return (
-            <div className="cart-bg-container">
+            <div className='cart-bg-container'>
               <Header />
-              <div className="cart-heading-remove-all-container">
-                <h1 className="my-cart-heading">My Cart</h1>
+              <div className='cart-heading-remove-all-container'>
+                <h1 className='my-cart-heading'>My Cart</h1>
                 <button
-                  type="button"
-                  className="remove-all-btn"
+                  type='button'
+                  className='remove-all-btn'
                   onClick={onClickingRemoveAllBtn}
                 >
                   Remove All
                 </button>
               </div>
-              <div className="cart-content-container">
+              <div className='cart-content-container'>
                 <CartListView />
               </div>
             </div>

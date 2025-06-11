@@ -49,7 +49,7 @@ class App extends Component {
   }
 
   addCartItem = product => {
-   // console.log(product)
+    // console.log(product)
     this.setState(prevState => {
       const existingItem = prevState.cartList.find(
         item => item.dish.dish_id === product.dish.dish_id,
@@ -80,7 +80,7 @@ class App extends Component {
 
   render() {
     const {cartList} = this.state
-
+    console.log(cartList)
     return (
       <CartContext.Provider
         value={{

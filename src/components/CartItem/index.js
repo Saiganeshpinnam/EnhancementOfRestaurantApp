@@ -6,17 +6,23 @@ import {AiOutlineMinus} from 'react-icons/ai'
 
 import CartContext from '../../context/CartContext'
 
+import {AiFillCloseCircle} from 'react-icons/ai'
+
 import './index.css'
 
 class CartItem extends Component {
   render() {
     const {eachCartItem} = this.props
-    console.log(eachCartItem)
+    // console.log(eachCartItem.dishCount[eachCartItem.dish.dish_id])
+    // console.log(eachCartItem.dish.dish_price)
+    // console.log(eachCartItem)
     const formattedData = {
       dishId: eachCartItem.dish.dish_id,
       dishName: eachCartItem.dish.dish_name,
       dishImage: eachCartItem.dish.dish_image,
       quantity: eachCartItem.quantity,
+      dishPrice: eachCartItem.dish.dish_price,
+      dishCount: eachCartItem.dishCount[eachCartItem.dish.dish_id],
     }
 
     return (
@@ -25,6 +31,7 @@ class CartItem extends Component {
           const {
             incrementCartItemQuantity,
             decrementCartItemQuantity,
+            removeCartItem,
             cartList,
           } = value
 
@@ -34,6 +41,9 @@ class CartItem extends Component {
           }
           const onClickingDecreaseCartItem = id => {
             decrementCartItemQuantity(id)
+          }
+          const onClickingRemoveBtn = dishId => {
+            removeCartItem(dishId)
           }
           return (
             <li key={formattedData.dishId} className='each-cart-item'>
@@ -68,6 +78,19 @@ class CartItem extends Component {
                   <AiOutlineMinus />
                 </button>
               </div>
+              <p className='dish-price'>
+                Rs{' '}
+                {eachCartItem.dishCount[formattedData.dishId] *
+                  formattedData.dishPrice}{' '}
+                /-
+              </p>
+              <button
+                type='button'
+                onClick={() => onClickingRemoveBtn(formattedData.dishId)}
+                className='close-btn'
+              >
+                <AiFillCloseCircle className='close-dish' />
+              </button>
             </li>
           )
         }}
