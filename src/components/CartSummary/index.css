@@ -1,0 +1,17 @@
+.order-total-heading {
+  color: #626c80;
+  font-size: 20px;
+  font-family: 'Roboto';
+  margin: 3px;
+}
+.cart-amount-value {
+  color: #16181c;
+  font-size: 23px;
+  font-family: 'Roboto';
+}
+.cart-items-count {
+  color: #626c80;
+  font-size: 15px;
+  font-family: 'Roboto';
+  margin: 3px;
+}

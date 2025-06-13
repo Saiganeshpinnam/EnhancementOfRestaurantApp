@@ -6,6 +6,8 @@ import CartContext from '../../context/CartContext'
 
 import CartListView from '../CartListView'
 
+import CartSummary from '../CartSummary'
+
 import './index.css'
 
 class Cart extends Component {
@@ -32,6 +34,12 @@ class Cart extends Component {
               </div>
               <div className='cart-content-container'>
                 <CartListView />
+                <div className='cart-summary-container'>
+                  <CartSummary />
+                  <button type='button' className='checkout-button'>
+                    Checkout
+                  </button>
+                </div>
               </div>
             </div>
           )

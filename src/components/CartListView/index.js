@@ -16,7 +16,10 @@ class cartListView extends Component {
           return (
             <ul className='cart-items-container'>
               {cartList.map(eachCartItem => (
-                <CartItem eachCartItem={eachCartItem} key={eachCartItem.dish.dish_id}/>
+                <CartItem
+                  eachCartItem={eachCartItem}
+                  key={eachCartItem.dish.dish_id}
+                />
               ))}
             </ul>
           )
