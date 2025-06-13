@@ -14,13 +14,16 @@ const CartSummary = () => (
         )
         .reduce((sum, itemTotal) => sum + itemTotal, 0)
       return (
-        <>
+        <div className='summary-content-container'>
           <h1 className='order-total-heading'>
             Order Total:
-            <span className='cart-amount-value'> RS {cartTotal}/-</span>
+            <span className='cart-amount-value'> Rs {cartTotal}/-</span>
           </h1>
           <p className='cart-items-count'>{cartList.length} Items in cart</p>
-        </>
+          <button type='button' className='checkout-button'>
+            Checkout
+          </button>
+        </div>
       )
     }}
   </CartContext.Consumer>

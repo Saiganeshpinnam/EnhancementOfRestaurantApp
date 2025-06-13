@@ -8,7 +8,7 @@ import CartContext from '../../context/CartContext'
 
 import './index.css'
 
-const Header = (props) => {
+const Header = props => {
   const onClickLogout = () => {
     Cookies.remove('jwt_token')
     const {history} = props
@@ -19,7 +19,6 @@ const Header = (props) => {
       {value => {
         const {cartList} = value
         const cartItemsCount = cartList.length
-        
 
         return (
           <div className='name-cart-container'>

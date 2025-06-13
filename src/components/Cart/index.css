@@ -37,3 +37,9 @@
   background-color: transparent;
   cursor: pointer;
 }
+.cart-summary-container{
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}

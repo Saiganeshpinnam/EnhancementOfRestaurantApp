@@ -35,10 +35,10 @@ class Cart extends Component {
               <div className='cart-content-container'>
                 <CartListView />
                 <div className='cart-summary-container'>
+                <>
                   <CartSummary />
-                  <button type='button' className='checkout-button'>
-                    Checkout
-                  </button>
+                 
+                  </>
                 </div>
               </div>
             </div>
