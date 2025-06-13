@@ -21,12 +21,12 @@
     font-size: 12px;
   }
 }
-.orders-cart-container {
+.orders-cart-logout-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  width: 210px;
+  width: 330px;
 }
 .my-orders-heading {
   color: #615d53;
@@ -81,4 +81,15 @@
     width: 11px;
     font-size: 6px;
   }
+}
+.logout-btn {
+  background-color: #1b379e;
+  height: 35px;
+  width: 90px;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 16px;
+  font-family: 'Roboto';
+  border-width: 0px;
+  cursor: pointer;
 }
