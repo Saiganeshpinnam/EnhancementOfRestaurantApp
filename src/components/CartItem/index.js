@@ -22,7 +22,6 @@ class CartItem extends Component {
       dishImage: eachCartItem.dish.dish_image,
       quantity: eachCartItem.quantity,
       dishPrice: eachCartItem.dish.dish_price,
-      dishCount: eachCartItem.dishCount[eachCartItem.dish.dish_id],
     }
 
     return (
@@ -32,7 +31,6 @@ class CartItem extends Component {
             incrementCartItemQuantity,
             decrementCartItemQuantity,
             removeCartItem,
-            cartList,
           } = value
 
           const onClickingIncreaseCartItem = id => {
@@ -65,9 +63,7 @@ class CartItem extends Component {
                 >
                   <BsPlus />
                 </button>
-                <p className='cart-item-quantity'>
-                  {eachCartItem.dishCount[formattedData.dishId]}
-                </p>
+                <p className='cart-item-quantity'>{formattedData.quantity}</p>
                 <button
                   type='button'
                   className='cart-count-btn'
@@ -79,10 +75,7 @@ class CartItem extends Component {
                 </button>
               </div>
               <p className='dish-price'>
-                Rs{' '}
-                {eachCartItem.dishCount[formattedData.dishId] *
-                  formattedData.dishPrice}{' '}
-                /-
+                Rs {formattedData.quantity * formattedData.dishPrice} /-
               </p>
               <button
                 type='button'

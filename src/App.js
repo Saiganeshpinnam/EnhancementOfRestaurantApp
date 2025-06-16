@@ -46,7 +46,7 @@ class App extends Component {
             ? {...item, quantity: item.quantity - 1}
             : item,
         )
-        .filter(item => !(item.id === id && item.quantity === 0)),
+        .filter(item => !(item.dish.dish_id === id && item.quantity === 0)),
     }))
   }
 
@@ -65,7 +65,12 @@ class App extends Component {
           ),
         }
       }
-      return {cartList: [...prevState.cartList, product]}
+      return {
+        cartList: [
+          ...prevState.cartList,
+          {...product, quantity: product.quantity || 1},
+        ],
+      }
     })
   }
 
@@ -73,7 +78,7 @@ class App extends Component {
     const {cartList} = this.state
 
     const cartItemsAfterDelete = cartList.filter(
-      specificCartItem => specificCartItem.id !== id,
+      specificCartItem => specificCartItem.dish.dish_id !== id,
     )
     this.setState({
       cartList: cartItemsAfterDelete,
