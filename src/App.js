@@ -64,37 +64,27 @@ class App extends Component {
     }))
   }
 
-  addCartItem = product => {
-    // console.log(product)
-    this.setState(prevState => {
-      const existingItem = prevState.cartList.find(
-        item => item.dish.dish_id === product.dish.dish_id,
-      )
-      if (existingItem) {
-        return {
-          cartList: prevState.cartList.map(item =>
-            item.dish.dish_id === product.dish.dish_id
-              ? {
-                  ...item,
-                  quantity: item.quantity + 1,
-                  dishCount: {
-                    ...item.dishCount,
-                    [product.dish.dish_id]:
-                      (item.dishCount?.[product.dish.dish_id] || 1) + 1,
-                  },
-                }
-              : item,
-          ),
-        }
-      }
+ addCartItem = product => {
+  this.setState(prevState => {
+    const existingItem = prevState.cartList.find(
+      item => item.dish.dish_id === product.dish.dish_id,
+    )
+    if (existingItem) {
       return {
-        cartList: [
-          ...prevState.cartList,
-          {...product, quantity: product.quantity || 1},
-        ],
+        cartList: prevState.cartList.map(item =>
+          item.dish.dish_id === product.dish.dish_id
+            ? {...item, quantity: item.quantity + 1}
+            : item
+        ),
       }
-    })
-  }
+    }
+
+    return {
+      cartList: [...prevState.cartList, {...product, quantity: 1}],
+    }
+  })
+}
+
 
   removeCartItem = id => {
     const {cartList} = this.state
