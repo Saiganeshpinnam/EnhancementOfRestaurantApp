@@ -40,6 +40,7 @@
   font-size: 12px;
   padding: 1px;
   color: black;
+  cursor: pointer;
 }
 .cart-item-quantity {
   color: #202421;
@@ -53,6 +54,7 @@
 .close-btn {
   background-color: transparent;
   border-width: 0px;
+  cursor: pointer;
 }
 .close-dish {
   font-size: 18px;

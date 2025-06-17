@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom'
+
 import {Component} from 'react'
 
 import Header from '../Header'
@@ -16,6 +18,7 @@ class Cart extends Component {
       <CartContext.Consumer>
         {value => {
           const {cartList, removeAllCartItems} = value
+          const cartListLength = cartList.length
           const onClickingRemoveAllBtn = () => {
             removeAllCartItems()
           }
@@ -32,14 +35,26 @@ class Cart extends Component {
                   Remove All
                 </button>
               </div>
-              <div className='cart-content-container'>
-                <CartListView />
-                <div className='cart-summary-container'>
-                  <>
-                    <CartSummary />
-                  </>
+
+              {cartListLength > 0 ? (
+                <div className='cart-content-container'>
+                  <CartListView />
+                  <div className='cart-summary-container'>
+                   
+                      <CartSummary />
+                   
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <>
+                  <img src='https://assets.ccbp.in/frontend/react-js/nxt-trendz-empty-cart-img.png' />
+                  <Link to='/'>
+                    <button type='button' className='shop-now-btn'>
+                      Shop Now
+                    </button>
+                  </Link>
+                </>
+              )}
             </div>
           )
         }}

@@ -37,9 +37,21 @@
   background-color: transparent;
   cursor: pointer;
 }
-.cart-summary-container{
-  width: 100vw;
+.cart-summary-container {
+  width: 80vw;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+}
+.shop-now-btn {
+  background-color: #0c45f0;
+  height: 40px;
+  width: 140px;
+  color: #ffffff;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: 'Roboto';
+  border-width: 0px;
+  margin-top: 20px;
+  cursor: pointer;
 }

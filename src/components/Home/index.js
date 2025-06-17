@@ -36,14 +36,7 @@ class Home extends Component {
     )
     if (response.ok === true) {
       const data = await response.json()
-      // console.log(
-      //   data[0].table_menu_list.map(eachMenu =>
-      //     eachMenu.category_dishes.map(
-      //       eachCategoryDish => eachCategoryDish.dish_id,
-      //     ),
-      //   ),
-      // )
-
+     
       const formattedData = data.map(eachItem => ({
         restaurantId: eachItem.restaurant_id,
         restaurantName: eachItem.restaurant_name,
@@ -146,6 +139,7 @@ class Home extends Component {
           const onClickingAddToCartBtn = dish => {
             addCartItem({...dishData, dish, dishCount})
           }
+          
           return (
             <div className='restaurant-bg-container'>
               <Header />
