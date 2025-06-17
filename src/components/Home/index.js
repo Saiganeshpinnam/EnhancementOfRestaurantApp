@@ -209,9 +209,19 @@ class Home extends Component {
                               >
                                 -
                               </button>
-                              <p className='dish-count'>
-                                {dishCount[dish.dish_id] || 1}
-                              </p>
+
+                              {dishCount[dish.dish_id] > 0 ? (
+                                <p className='dish-count'>
+                                  {' '}
+                                  {dishCount[dish.dish_id]}{' '}
+                                </p>
+                              ) : (
+                                <p className='dish-count'>
+                                  {' '}
+                                  {dishCount[dish.dish_id] || 0}{' '}
+                                </p>
+                              )}
+
                               <button
                                 type='button'
                                 className='increase-decrease-btn'
@@ -223,13 +233,17 @@ class Home extends Component {
                               </button>
                             </div>
 
-                            <button
-                              type='button'
-                              className='add-to-cart-btn'
-                              onClick={() => onClickingAddToCartBtn(dish)}
-                            >
-                              Add to Cart
-                            </button>
+                            {dishCount[dish.dish_id] > 0 ? (
+                              <button
+                                type='button'
+                                className='add-to-cart-btn'
+                                onClick={() => onClickingAddToCartBtn(dish)}
+                              >
+                                Add to Cart
+                              </button>
+                            ) : (
+                              ''
+                            )}
                           </div>
                         )}
                         {dish.addonCat.length > 0 && (

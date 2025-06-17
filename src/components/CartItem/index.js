@@ -13,7 +13,7 @@ import './index.css'
 class CartItem extends Component {
   render() {
     const {eachCartItem} = this.props
-    console.log(eachCartItem.dishCount[eachCartItem.dish.dish_id])
+    // console.log(eachCartItem.dishCount[eachCartItem.dish.dish_id])
     // console.log(eachCartItem.dish.dish_price)
     // console.log(eachCartItem)
     const formattedData = {
@@ -26,6 +26,7 @@ class CartItem extends Component {
         ? eachCartItem.dishCount[eachCartItem.dish.dish_id]
         : eachCartItem.quantity,
     }
+    console.log(formattedData)
 
     return (
       <CartContext.Consumer>
@@ -78,7 +79,7 @@ class CartItem extends Component {
                 </button>
               </div>
               <p className='dish-price'>
-                Rs {formattedData.quantity * formattedData.dishPrice} /-
+                Rs {formattedData.dishCount * formattedData.dishPrice} /-
               </p>
               <button
                 type='button'
