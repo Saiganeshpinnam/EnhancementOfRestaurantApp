@@ -9,6 +9,7 @@ import CartContext from '../../context/CartContext'
 import './index.css'
 
 const Header = props => {
+  const {restaurantName} = props
   const onClickLogout = () => {
     Cookies.remove('jwt_token')
     const {history} = props
@@ -23,16 +24,16 @@ const Header = props => {
         return (
           <div className='name-cart-container'>
             <Link to='/' className='restaurant-name'>
-              UNI Resto Cafe
+              {restaurantName}
             </Link>
             <div className='orders-cart-logout-container'>
+              <p className='cart-link-text'>Cart</p>
               <Link to='/cart' className='cart-link-text'>
-                Cart
+                <div className='cart-image-order-count-container'>
+                  <span className='cart-count'>{cartItemsCount}</span>
+                  <FiShoppingCart className='cart-icon' />
+                </div>
               </Link>
-              <div className='cart-image-order-count-container'>
-                <span className='cart-count'>{cartItemsCount}</span>
-                <FiShoppingCart className='cart-icon' />
-              </div>
               <h1 className='my-orders-heading'>My Orders</h1>
               <button
                 type='button'
@@ -50,3 +51,4 @@ const Header = props => {
 }
 
 export default withRouter(Header)
+//UNI Resto Cafe

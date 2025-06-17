@@ -34,9 +34,10 @@ class Home extends Component {
     const response = await fetch(
       'https://apis2.ccbp.in/restaurant-app/restaurant-menu-list-details',
     )
+    console.log(response)
     if (response.ok === true) {
       const data = await response.json()
-     
+
       const formattedData = data.map(eachItem => ({
         restaurantId: eachItem.restaurant_id,
         restaurantName: eachItem.restaurant_name,
@@ -105,7 +106,7 @@ class Home extends Component {
     this.setState(prevState => ({
       dishCount: {
         ...prevState.dishCount,
-        [id]: (prevState.dishCount[id] || 1) + 1,
+        [id]: (prevState.dishCount[id] || 0) + 1,
       },
       cartCount: prevState.cartCount + 1,
     }))
@@ -121,7 +122,7 @@ class Home extends Component {
     return (
       <CartContext.Consumer>
         {value => {
-          const {dishData, quantity, dishCount} = this.state
+          const {dishData, quantity, dishCount, restaurantData} = this.state
 
           const {
             dishId,
@@ -139,10 +140,10 @@ class Home extends Component {
           const onClickingAddToCartBtn = dish => {
             addCartItem({...dishData, dish, dishCount})
           }
-          
+
           return (
             <div className='restaurant-bg-container'>
-              <Header />
+              <Header restaurantName={restaurantData[0].restaurantName} />
               <ul className='tabs-container'>
                 {tableMenuList.map(eachTab => {
                   const isActiveCategory =
@@ -206,13 +207,11 @@ class Home extends Component {
 
                               {dishCount[dish.dish_id] > 0 ? (
                                 <p className='dish-count'>
-                                  {' '}
-                                  {dishCount[dish.dish_id]}{' '}
+                                  {dishCount[dish.dish_id]}
                                 </p>
                               ) : (
                                 <p className='dish-count'>
-                                  {' '}
-                                  {dishCount[dish.dish_id] || 0}{' '}
+                                  {dishCount[dish.dish_id] || 0}
                                 </p>
                               )}
 
