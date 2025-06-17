@@ -129,6 +129,7 @@ class Home extends Component {
       <CartContext.Consumer>
         {value => {
           const {dishData, quantity, dishCount} = this.state
+
           const {
             dishId,
             dishName,

@@ -35,9 +35,8 @@ class Cart extends Component {
               <div className='cart-content-container'>
                 <CartListView />
                 <div className='cart-summary-container'>
-                <>
-                  <CartSummary />
-                 
+                  <>
+                    <CartSummary />
                   </>
                 </div>
               </div>

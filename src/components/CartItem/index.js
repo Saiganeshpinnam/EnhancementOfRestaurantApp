@@ -13,7 +13,7 @@ import './index.css'
 class CartItem extends Component {
   render() {
     const {eachCartItem} = this.props
-    // console.log(eachCartItem.dishCount[eachCartItem.dish.dish_id])
+    console.log(eachCartItem.dishCount[eachCartItem.dish.dish_id])
     // console.log(eachCartItem.dish.dish_price)
     // console.log(eachCartItem)
     const formattedData = {
@@ -22,6 +22,9 @@ class CartItem extends Component {
       dishImage: eachCartItem.dish.dish_image,
       quantity: eachCartItem.quantity,
       dishPrice: eachCartItem.dish.dish_price,
+      dishCount: eachCartItem.dishCount
+        ? eachCartItem.dishCount[eachCartItem.dish.dish_id]
+        : eachCartItem.quantity,
     }
 
     return (
@@ -63,7 +66,7 @@ class CartItem extends Component {
                 >
                   <BsPlus />
                 </button>
-                <p className='cart-item-quantity'>{formattedData.quantity}</p>
+                <p className='cart-item-quantity'>{formattedData.dishCount}</p>
                 <button
                   type='button'
                   className='cart-count-btn'

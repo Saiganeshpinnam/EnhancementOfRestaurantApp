@@ -32,7 +32,14 @@ class App extends Component {
     this.setState(prevState => ({
       cartList: prevState.cartList.map(item =>
         item.dish.dish_id === id
-          ? {...item, quantity: item.quantity + 1}
+          ? {
+              ...item,
+              quantity: item.quantity + 1,
+              dishCount: {
+                ...item.dishCount,
+                [id]: (item.dishCount?.[id] || 1) + 1,
+              },
+            }
           : item,
       ),
     }))
@@ -43,10 +50,17 @@ class App extends Component {
       cartList: prevState.cartList
         .map(item =>
           item.dish.dish_id === id
-            ? {...item, quantity: item.quantity - 1}
+            ? {
+                ...item,
+                quantity: item.quantity - 1,
+                dishCount: {
+                  ...item.dishCount,
+                  [id]: (item.dishCount?.[id] || 1) - 1,
+                },
+              }
             : item,
         )
-        .filter(item => !(item.dish.dish_id === id && item.quantity === 0)),
+        .filter(item => item.quantity > 0),
     }))
   }
 
@@ -60,7 +74,15 @@ class App extends Component {
         return {
           cartList: prevState.cartList.map(item =>
             item.dish.dish_id === product.dish.dish_id
-              ? {...item, quantity: item.quantity + product.quantity}
+              ? {
+                  ...item,
+                  quantity: item.quantity + 1,
+                  dishCount: {
+                    ...item.dishCount,
+                    [product.dish.dish_id]:
+                      (item.dishCount?.[product.dish.dish_id] || 1) + 1,
+                  },
+                }
               : item,
           ),
         }
